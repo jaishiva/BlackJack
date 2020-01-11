@@ -1,4 +1,5 @@
 import random
+play = True
 suits = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
 ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
 values = {'Two':2, 'Three':3, 'Four':4, 'Five':5, 'Six':6, 'Seven':7, 'Eight':8, 'Nine':9, 'Ten':10, 'Jack':10,
@@ -58,6 +59,18 @@ class chips:
     def lose_bet(self):
         self.total -= self.bet
 
+def hit_or_stand():
+    global play
+    while True:
+        player_input = input('Press "h" for hit "s" for stand ').lower()
+    if player_input == 'h':
+        return True
+    elif player_input == 's':
+        print("Dealer's turn ...hold on")
+        return False
+    else:
+        print("Please enter a valid input, try again")
+
 
 while True:
     print('Welcome to BlackJack - by Jai')
@@ -71,5 +84,6 @@ while True:
     player.add_card(deck.deal())
     hand.add_card(deck.deal())
     hand.add_card(deck.deal())
-    # while play:
-    break
+    while play:
+        break
+    
